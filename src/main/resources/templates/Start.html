@@ -8,7 +8,25 @@
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="container overflow-hidden text-center">
-<form action="/" method="post"th:object="">
+
+<table>
+    <tr th:text="${session.question.question}">
+        QUESTION
+    </tr>
+    <form th:action="@{/}" method="post">
+        <tr>
+            <td>
+                <input type="radio" name="action" th:value="${session.question.answer}"/><label>Ja</label><br>
+                <input type="radio" name="action"/><label>Nej</label><br>
+                <p>
+                    <input type="submit" value="Nästa">
+                </p>
+            </td>
+        </tr>
+    </form>
+</table>
+
+<!--<form action="/" method="post"th:object="">
 
 
 <div th:each="question : ${questionList}"th:text="${question.question}">
@@ -33,6 +51,6 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
 
         crossorigin="anonymous"></script>
-
+-->
 </body>
 </html>

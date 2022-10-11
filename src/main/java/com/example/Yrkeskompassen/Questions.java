@@ -7,26 +7,27 @@ import javax.persistence.*;
 public class Questions {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Long ID;
+    private Long QUESTIONSID;
     private String question;
     private boolean answer;
-    //@OneToOne
-   // private List<Egenskaper> egenskapspoäng;
+    @ManyToOne
+   private Traits traits;
 
     public Questions() {
     }
 
-    public Questions(Long ID, String question) {
-        this.ID = ID;
+    public Questions(Long QUESTIONSID, String question, boolean answer) {
+        this.QUESTIONSID = QUESTIONSID;
         this.question = question;
+        this.answer = answer;
     }
 
-    public Long getID() {
-        return ID;
+    public Long getQUESTIONSID() {
+        return QUESTIONSID;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setQUESTIONSID(Long QUESTIONSID) {
+        this.QUESTIONSID = QUESTIONSID;
     }
 
     public String getQuestion() {
