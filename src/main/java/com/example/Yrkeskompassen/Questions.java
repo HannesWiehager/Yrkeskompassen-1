@@ -1,23 +1,24 @@
 package com.example.Yrkeskompassen;
 
 import javax.persistence.*;
-import java.util.List;
+
 @Entity
 
-public class Frågor {
+public class Questions {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long ID;
-    private String fråga;
+    private String question;
+    private boolean answer;
     //@OneToOne
    // private List<Egenskaper> egenskapspoäng;
 
-    public Frågor() {
+    public Questions() {
     }
 
-    public Frågor(Long ID, String fråga) {
+    public Questions(Long ID, String question) {
         this.ID = ID;
-        this.fråga = fråga;
+        this.question = question;
     }
 
     public Long getID() {
@@ -28,15 +29,22 @@ public class Frågor {
         this.ID = ID;
     }
 
-    public String getFråga() {
-        return fråga;
+    public String getQuestion() {
+        return question;
     }
 
-    public void setFråga(String fråga) {
-        this.fråga = fråga;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
-  /*  public List<Egenskaper> getEgenskapspoäng() {
+    public boolean isAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(boolean answer) {
+        this.answer = answer;
+    }
+    /*  public List<Egenskaper> getEgenskapspoäng() {
         return egenskapspoäng;
     }
 
