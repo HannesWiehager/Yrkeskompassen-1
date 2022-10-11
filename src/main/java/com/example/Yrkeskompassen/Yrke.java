@@ -1,4 +1,4 @@
-package com.example.Yrkeskompassen;
+/*package com.example.Yrkeskompassen;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,7 +14,7 @@ public class Yrke {
     private Long ID;
 
     private String yrkestitel;
-    @ManyToMany
+    //@ManyToMany
     private List<Egenskaper> egenskaperList;
 
     public Yrke() {
@@ -50,3 +50,4 @@ public class Yrke {
         this.egenskaperList = egenskaperList;
     }
 }
+*/

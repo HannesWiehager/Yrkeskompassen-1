@@ -1,4 +1,4 @@
-package com.example.Yrkeskompassen;
+/*package com.example.Yrkeskompassen;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Egenskaper {
     private String egenskap;
     private int poäng;
 
-    @ManyToMany
+    //@ManyToMany
     private List<Yrke> yrkeList;
 
     public Egenskaper() {
@@ -57,7 +57,7 @@ public class Egenskaper {
         this.yrkeList = yrkeList;
     }
 
-/*public enum Egenskaper {
+public enum Egenskaper {
 
         EXTROVERT,
         INTROVERT,
@@ -66,6 +66,7 @@ public class Egenskaper {
         NYFIKENHET,
         NOGGRANNHET,
         FLEXIBEL,
-                */
+
 
 }
+*/
