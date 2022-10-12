@@ -12,6 +12,7 @@ public class Traits {
     @GeneratedValue ( strategy = GenerationType.IDENTITY)
     private Long TRAITSID;
     private String trait;
+    @Transient
     private int points;
 
     @OneToMany (mappedBy="traits", cascade = CascadeType.ALL)

@@ -16,9 +16,7 @@ public class KompassController {
     @Autowired
     QuestionRepository repository;
     @Autowired
-    TraitsRepository traitsRepository;
-    @Autowired
-    UserRepository userRepository;
+    ProfessionRepository professionRepository;
 
     @GetMapping("/")
     public String start(HttpSession session) {
@@ -29,14 +27,9 @@ public class KompassController {
     @GetMapping("/{id}")
     public String current (@PathVariable Long id, Model model, HttpSession session){
 
-        //List<Questions> questionList = (List)repository.findAll();
-        //model.addAttribute("questionList",questionList);
-
-        //int counter = (Integer) session.getAttribute("counter");
         Questions question = repository.findById(id).get();
 
         model.addAttribute("currentQuestion", id);
-
 
         session.setAttribute("question", question);
 
@@ -47,12 +40,6 @@ public class KompassController {
 
     }
 
-    /*@GetMapping("/increment")
-    public String increment(HttpSession session) {
-        session.setAttribute("counter", ((Integer) session.getAttribute("counter")) + 1);
-        System.out.println(session.getAttribute("counter"));
-        return "redirect:/current";
-    }*/
     @PostMapping("/{id}")
     public String next (@PathVariable Long id, Model model, @RequestParam boolean action, HttpSession session) {
 
@@ -68,7 +55,6 @@ public class KompassController {
             test.setAnswer(true);
             repository.save(test);
 
-            //traitsRepository.save(test.getTraits());
             List <Traits> list1 = (List)session.getAttribute("traitsList");
 
             boolean isTrue= true;
@@ -90,27 +76,12 @@ public class KompassController {
             for (int i =0; i < list1.size(); i++) {
                 System.out.println(list1.get(i).getTrait() + list1.get(i).getPoints());
             }
-
-            /*List<Traits> traitsSet = new ArrayList<>();
-
-            Traits traitsTest = new Traits();
-            traitsTest.setTrait(test.getTraits().getTrait());
-            traitsTest.setTRAITSID(test.getTraits().getTRAITSID());
-            traitsTest.setPoints(test.getTraits().getPoints());
-
-            traitsSet.add(traitsTest);
-            User test2 = new User();
-            test2.setUserTraits(traitsSet);
-
-            userRepository.save(test2);*/
-
-        } else {
-            System.out.println("false");
         }
 
+        if (id == 5) {
+            // kolla traitsList mot professionRepo
+            return "test";
+        }
         return "redirect:/" + (id + 1l);
     }
-
-
-
 }
