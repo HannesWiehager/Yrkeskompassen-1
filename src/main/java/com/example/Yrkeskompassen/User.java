@@ -8,22 +8,10 @@ import javax.persistence.Id;
 @Entity
 public class User {
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
-   private boolean answer;
 
-   public User() {
-   }
 
-    public User(boolean answer) {
-        this.answer = answer;
-    }
-
-    public boolean isAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(boolean answer) {
-        this.answer = answer;
+    public User() {
     }
 }

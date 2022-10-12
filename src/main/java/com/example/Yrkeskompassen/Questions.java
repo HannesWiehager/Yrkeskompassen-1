@@ -22,6 +22,10 @@ public class Questions {
         this.answer = answer;
     }
 
+    public Traits getTraits() {
+        return traits;
+    }
+
     public Long getQUESTIONSID() {
         return QUESTIONSID;
     }

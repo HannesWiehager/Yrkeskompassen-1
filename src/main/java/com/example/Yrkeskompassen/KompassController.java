@@ -14,13 +14,14 @@ public class KompassController {
     @Autowired
     QuestionRepository repository;
     @Autowired
-    UserRepository userRepository;
+    TraitsRepository traitsRepository;
 
-    /*@GetMapping("/")
+    @GetMapping("/")
     public String start(HttpSession session) {
-        session.setAttribute("counter", 1);
-        return "redirect:/current";
-    }*/
+        List<Traits> traitsList = new ArrayList<>();
+        session.setAttribute("traitsList", traitsList);
+        return "redirect:/" + 1l;
+    }
     @GetMapping("/{id}")
     public String current (@PathVariable Long id, Model model, HttpSession session){
 
@@ -49,22 +50,27 @@ public class KompassController {
         return "redirect:/current";
     }*/
     @PostMapping("/{id}")
-    public String next (Model model, @RequestParam boolean action, HttpSession session) {
+    public String next (@PathVariable Long id, Model model, @RequestParam boolean action, HttpSession session) {
 
         model.getAttribute("currentQuestion");
+
         session.getAttribute("question");
         session.getAttribute("traits");
 
-        if (action){
-            System.out.println("true");
-            Questions test = (Questions)session.getAttribute("question");
+        session.getAttribute("traitsList");
+
+        if (action) {
+            Questions test = (Questions) session.getAttribute("question");
             test.setAnswer(true);
             repository.save(test);
-        }else{
+
+            traitsRepository.save(test.getTraits());
+            System.out.println(test.getTraits().getTrait());
+        } else {
             System.out.println("false");
         }
 
-        return "Start";
+        return "redirect:/" + (id + 1l);
     }
 
 
