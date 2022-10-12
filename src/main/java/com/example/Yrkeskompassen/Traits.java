@@ -3,6 +3,7 @@ package com.example.Yrkeskompassen;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 
@@ -16,13 +17,22 @@ public class Traits {
     @OneToMany (mappedBy="traits", cascade = CascadeType.ALL)
     private List<Questions> questionsList = new ArrayList<>();
 
+    @ManyToMany
+    @JoinTable(
+            name="user_traits",
+            joinColumns = @JoinColumn(name = "USER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "TRAITSID"))
+    private List<User> users = new ArrayList<>();
+
     public Traits() {
     }
 
-    public Traits(Long TRAITSID, String trait, int points) {
+    public Traits(Long TRAITSID, String trait, int points, List<Questions> questionsList, List<User> users) {
         this.TRAITSID = TRAITSID;
         this.trait = trait;
         this.points = points;
+        this.questionsList = questionsList;
+        this.users = users;
     }
 
     public Long getTRAITSID() {
@@ -49,7 +59,23 @@ public class Traits {
         this.points = points;
     }
 
-   /* public List<Yrke> getYrkeList() {
+    public List<Questions> getQuestionsList() {
+        return questionsList;
+    }
+
+    public void setQuestionsList(List<Questions> questionsList) {
+        this.questionsList = questionsList;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    /* public List<Yrke> getYrkeList() {
         return yrkeList;
     }
 
