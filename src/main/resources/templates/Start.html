@@ -13,11 +13,11 @@
     <tr th:text="${session.question.question}">
         QUESTION
     </tr>
-    <form th:action="@{/}" method="post">
+    <form th:action="'/' +${currentQuestion}" method="post">
         <tr>
             <td>
-                <input type="radio" name="action" th:value="${session.question.answer}"/><label>Ja</label><br>
-                <input type="radio" name="action"/><label>Nej</label><br>
+                <input type="radio" name="action" th:value="true"/><label>Ja</label><br>
+                <input type="radio" name="action" th:value="false"/><label>Nej</label><br>
                 <p>
                     <input type="submit" value="Nästa">
                 </p>
