@@ -17,6 +17,12 @@ public class KompassController {
     TraitsRepository traitsRepository;
 
     @GetMapping("/")
+    public String home(HttpSession session) {
+        List<Traits> traitsList = new ArrayList<>();
+        session.setAttribute("traitsList", traitsList);
+        return "home";
+    }
+    @GetMapping("/start")
     public String start(HttpSession session) {
         List<Traits> traitsList = new ArrayList<>();
         session.setAttribute("traitsList", traitsList);
@@ -42,6 +48,7 @@ public class KompassController {
         return "Start";
 
     }
+
 
     /*@GetMapping("/increment")
     public String increment(HttpSession session) {
@@ -72,6 +79,7 @@ public class KompassController {
 
         return "redirect:/" + (id + 1l);
     }
+
 
 
 

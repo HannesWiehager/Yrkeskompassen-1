@@ -1,0 +1,17 @@
+
+.container {
+    background-color:rgb(167, 158, 158);
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
+
+.btn {
+    width: 100px;
+}
+
+.input.form-control  {
+    width:200px;display:inline;
+}
+
+.output.form-control {
+    width:200px;display:inline;  
+}
