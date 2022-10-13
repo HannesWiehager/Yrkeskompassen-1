@@ -56,13 +56,12 @@ public class KompassController {
         session.getAttribute("traits");
 
         session.getAttribute("traitsList");
+        List <Traits> list1 = (List)session.getAttribute("traitsList");
 
         if (action) {
             Questions test = (Questions) session.getAttribute("question");
             test.setAnswer(true);
             repository.save(test);
-
-            List <Traits> list1 = (List)session.getAttribute("traitsList");
 
             boolean isTrue= true;
 
@@ -85,10 +84,39 @@ public class KompassController {
             }
         }
 
-        if (id == 5) {
+        List<String> matchedList = new ArrayList<>();
+
+        if (id == 10) {
             // kolla traitsList mot professionRepo
-            return "test";
+            List<Profession> professionList =(List)professionRepository.findAll();
+
+
+            for (int i = 0; i < professionList.size(); i++) {
+                for (int j = 0; j < list1.size(); j++) {
+                    if (list1.get(j).getTrait().equals(professionList.get(i).getTRAIT1()) && list1.get(j).getPoints() >= professionList.get(i).getPOINTS1()) {
+                        for (int k = 0; k < list1.size(); k++) {
+                            if (list1.get(k).getTrait().equals(professionList.get(i).getTRAIT2()) && list1.get(k).getPoints() >= professionList.get(i).getPOINTS2()) {
+                                matchedList.add(professionList.get(i).getTitle());
+                            }
+                        }
+                    }
+                }
+            }
+            for (String s : matchedList) {
+                System.out.println(s);
+            }
+            model.addAttribute("matchedList", matchedList);
+            return "result";
         }
+
         return "redirect:/" + (id + 1l);
+    }
+
+    @GetMapping("/result")
+    public String resultPage(Model model, HttpSession session) {
+        model.getAttribute("matchedList");
+        session.getAttribute("traitsList");
+
+        return "result";
     }
 }

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Dina yrkesresultat:</h1>
+
+<div th:each="professions : ${matchedList}" th:text="${professions}"></div>
+
+<h2>Egenskaper du fick poäng i:</h2>
+
+<div th:each="traits : ${session.traitsList}" th:text="${traits.trait}"></div>
+
+</body>
+</html>
