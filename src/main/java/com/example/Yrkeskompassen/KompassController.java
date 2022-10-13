@@ -18,7 +18,14 @@ public class KompassController {
     @Autowired
     ProfessionRepository professionRepository;
 
+
     @GetMapping("/")
+    public String home(HttpSession session) {
+        List<Traits> traitsList = new ArrayList<>();
+        session.setAttribute("traitsList", traitsList);
+        return "home";
+    }
+    @GetMapping("/start")
     public String start(HttpSession session) {
         List<Traits> traitsList = new ArrayList<>();
         session.setAttribute("traitsList", traitsList);

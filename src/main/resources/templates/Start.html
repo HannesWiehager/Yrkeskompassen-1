@@ -3,34 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="01.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body class="container overflow-hidden text-center">
-
-<table>
-    <tr th:text="${session.question.question}">
-        QUESTION
-    </tr>
-    <form th:action="'/' +${currentQuestion}" method="post">
-        <tr>
-            <td>
-                <input type="radio" name="action" th:value="true"/><label>Ja</label><br>
-                <input type="radio" name="action" th:value="false"/><label>Nej</label><br>
-                <p>
-                    <input type="submit" value="Nästa">
-                </p>
-            </td>
+<!--<div class="card text-bg-primary mb-3" style="max-width: 18rem;">    <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  </div></div>
+-->
+<div class="card text-bg-info mb-3" style="width: 50vw; margin-left : 25vw;">
+    <div class="card-header">Fråga nr ?</div>
+    <table>
+        <br>
+        <tr th:text="${session.question.question}">
         </tr>
-    </form>
-</table>
-
+        <form th:action="'/' +${currentQuestion}" method="post">
+            <tr>
+                <td>
+                    <br>
+                    <label class="radio-inline">
+                        <input type="radio" name="action" th:value="true"/><label>Ja</label><br>
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="action" th:value="false"/><label>Nej</label><br>
+                    </label>
+                    <p>
+                        <br>
+                        <input type="submit" value="Nästa">
+                    </p>
+                </td>
+            </tr>
+        </form>
+    </table>
+</div>
 <!--<form action="/" method="post"th:object="">
-
-
 <div th:each="question : ${questionList}"th:text="${question.question}">
-
 <div class="form-check">
     <input class="form-check-input" type="radio" th:field="${question.answer}"name="flexRadioDefault" id="flexRadioDefault1">
     <label class="form-check-label" for="flexRadioDefault1">
@@ -46,11 +53,9 @@
 </div>
 <input class="btn btn-primary" type="submit" value="Submit">
 </form>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
 -->
 </body>
 </html>
+
