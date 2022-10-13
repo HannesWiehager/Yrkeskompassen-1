@@ -1,4 +1,4 @@
-package com.example.Yrkeskompassen;
+/*package com.example.Yrkeskompassen;
 
 import javax.persistence.*;
 import java.util.List;
@@ -37,3 +37,4 @@ public class User {
         this.userTraits = userTraits;
     }
 }
+*/

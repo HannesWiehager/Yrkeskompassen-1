@@ -18,6 +18,9 @@ public class KompassController {
     @Autowired
     ProfessionRepository professionRepository;
 
+    @Autowired
+    KompassService service;
+
 
     @GetMapping("/")
     public String home(HttpSession session) {
@@ -35,6 +38,10 @@ public class KompassController {
     public String current (@PathVariable Long id, Model model, HttpSession session){
 
         Questions question = repository.findById(id).get();
+
+        List<Questions> q = (List)repository.findAll();
+
+        model.addAttribute("questionSize", q.size());
 
         model.addAttribute("currentQuestion", id);
 
@@ -56,32 +63,14 @@ public class KompassController {
         session.getAttribute("traits");
 
         session.getAttribute("traitsList");
-        List <Traits> list1 = (List)session.getAttribute("traitsList");
+        List <Traits> traitsList = (List)session.getAttribute("traitsList");
 
         if (action) {
-            Questions test = (Questions) session.getAttribute("question");
-            test.setAnswer(true);
-            repository.save(test);
+            Questions currentQuestion = (Questions) session.getAttribute("question");
+            currentQuestion.setAnswer(true);
+            repository.save(currentQuestion);
 
-            boolean isTrue= true;
-
-            for (int i =0; i < list1.size(); i++) {
-                if (list1.get(i).getTrait().equals(test.getTraits().getTrait())) {
-                    list1.get(i).setPoints(list1.get(i).getPoints() + 1);
-                    isTrue = false;
-                }
-            }
-
-            if (isTrue) {
-                Traits traitTest = new Traits();
-                traitTest.setTrait(test.getTraits().getTrait());
-                traitTest.setPoints(1);
-                list1.add(traitTest);
-            }
-
-            for (int i =0; i < list1.size(); i++) {
-                System.out.println(list1.get(i).getTrait() + list1.get(i).getPoints());
-            }
+            traitsList = service.addPointsOrNewTrait(traitsList, currentQuestion);
         }
 
         List<String> matchedList = new ArrayList<>();
@@ -90,21 +79,8 @@ public class KompassController {
             // kolla traitsList mot professionRepo
             List<Profession> professionList =(List)professionRepository.findAll();
 
+            matchedList = service.matchTraitsAndProfession(professionList, traitsList);
 
-            for (int i = 0; i < professionList.size(); i++) {
-                for (int j = 0; j < list1.size(); j++) {
-                    if (list1.get(j).getTrait().equals(professionList.get(i).getTRAIT1()) && list1.get(j).getPoints() >= professionList.get(i).getPOINTS1()) {
-                        for (int k = 0; k < list1.size(); k++) {
-                            if (list1.get(k).getTrait().equals(professionList.get(i).getTRAIT2()) && list1.get(k).getPoints() >= professionList.get(i).getPOINTS2()) {
-                                matchedList.add(professionList.get(i).getTitle());
-                            }
-                        }
-                    }
-                }
-            }
-            for (String s : matchedList) {
-                System.out.println(s);
-            }
             model.addAttribute("matchedList", matchedList);
             return "result";
         }

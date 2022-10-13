@@ -18,22 +18,13 @@ public class Traits {
     @OneToMany (mappedBy="traits", cascade = CascadeType.ALL)
     private List<Questions> questionsList = new ArrayList<>();
 
-    @ManyToMany
-    @JoinTable(
-            name="user_traits",
-            joinColumns = @JoinColumn(name = "USER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "TRAITSID"))
-    private List<User> users = new ArrayList<>();
-
     public Traits() {
     }
 
-    public Traits(Long TRAITSID, String trait, int points, List<Questions> questionsList, List<User> users) {
+    public Traits(Long TRAITSID, String trait, int points) {
         this.TRAITSID = TRAITSID;
         this.trait = trait;
         this.points = points;
-        this.questionsList = questionsList;
-        this.users = users;
     }
 
     public Long getTRAITSID() {
@@ -68,13 +59,6 @@ public class Traits {
         this.questionsList = questionsList;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 
     /* public List<Yrke> getYrkeList() {
         return yrkeList;
