@@ -1,11 +1,9 @@
 .container {
-    background-color:rgb(167, 158, 158);
+    background-color:rgb(255, 255, 255);
     font-family:Georgia, 'Times New Roman', Times, serif
 }
 
-.btn {
-    width: 100px;
-}
+
 
 .input.form-control  {
     width:200px;display:inline;
@@ -14,3 +12,5 @@
 .output.form-control {
     width:200px;display:inline;
 }
+
+.radio-inline {margin-left:5px; margin-right:5px;}

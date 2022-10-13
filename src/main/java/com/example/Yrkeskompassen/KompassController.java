@@ -32,9 +32,9 @@ public class KompassController {
     public String start(HttpSession session) {
         List<Traits> traitsList = new ArrayList<>();
         session.setAttribute("traitsList", traitsList);
-        return "redirect:/" + 1l;
+        return "redirect:/question/" + 1l;
     }
-    @GetMapping("/{id}")
+    @GetMapping("/question/{id}")
     public String current (@PathVariable Long id, Model model, HttpSession session){
 
         Questions question = repository.findById(id).get();
@@ -55,8 +55,10 @@ public class KompassController {
     }
 
     @PostMapping("/{id}")
-    public String next (@PathVariable Long id, Model model, @RequestParam boolean action, HttpSession session) {
-
+    public String next (@PathVariable Long id, Model model, @RequestParam (required = false) Boolean action, HttpSession session) {
+        if (action == null){
+            return "redirect:/question/" + (id);
+        }
         model.getAttribute("currentQuestion");
 
         session.getAttribute("question");
@@ -85,7 +87,7 @@ public class KompassController {
             return "result";
         }
 
-        return "redirect:/" + (id + 1l);
+        return "redirect:/question/" + (id + 1l);
     }
 
     @GetMapping("/result")

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="01.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/style.css">
 </head>
 <body class="container overflow-hidden text-center">
 <!--<div class="card text-bg-primary mb-3" style="max-width: 18rem;">    <div class="card-body">    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  </div></div>-->
@@ -17,7 +17,7 @@
         <table><br>
             <tr th:text="${session.question.question}"></tr>
             <form th:action="'/' +${currentQuestion}" method="post"> <br>
-                <br> <label class="radio-inline" ><input type="radio" name="action" th:value="true" /><label> Ja </label></label>
+                <br> <label class="radio-inline" ><input type="radio" id="input1" name="action" th:value="true" /><label> Ja </label></label>
                 <label class="radio-inline"><input type="radio" name="action" th:value="false"/><label> Nej </label><br></label>
                 <p>
                 <div class="d-grid gap-2 col-6 mx-auto"><input type="submit" class="tempBtn2 btn btn-primary mb-2 m-1" value="Nästa"></div>
