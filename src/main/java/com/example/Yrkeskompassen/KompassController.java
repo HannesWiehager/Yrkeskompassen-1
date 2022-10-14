@@ -3,13 +3,11 @@ package com.example.Yrkeskompassen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.constraints.NotNull;
 import java.util.*;
+import java.util.prefs.Preferences;
 
 @Controller
 public class KompassController {
@@ -47,13 +45,15 @@ public class KompassController {
 
         session.setAttribute("question", question);
 
+        List<Traits> traits = new ArrayList<>();
+        session.setAttribute("traits", traits);
+
         return "Start";
 
     }
 
     @PostMapping("/{id}")
     public String next (@PathVariable Long id, Model model, @RequestParam (required = false) Boolean action, HttpSession session) {
-
         if (action == null){
             return "redirect:/question/" + (id);
         }
@@ -73,9 +73,7 @@ public class KompassController {
             traitsList = service.addPointsOrNewTrait(traitsList, currentQuestion);
         }
 
-
-
-        List<String> matchedList = new ArrayList<>();
+        List<Profession> matchedList = new ArrayList<>();
 
         if (id == 10) {
             // kolla traitsList mot professionRepo

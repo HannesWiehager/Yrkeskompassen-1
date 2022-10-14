@@ -1,3 +1,4 @@
+
 package com.example.Yrkeskompassen;
 
 import java.util.Comparator;
@@ -8,3 +9,4 @@ public class SortTraits implements Comparator<Traits> {
         return a.getPoints() - b.getPoints();
     }
 }
+
