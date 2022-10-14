@@ -3,13 +3,13 @@ package com.example.Yrkeskompassen;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import javax.validation.constraints.NotNull;
+import java.util.*;
 
 @Controller
 public class KompassController {
@@ -47,15 +47,13 @@ public class KompassController {
 
         session.setAttribute("question", question);
 
-        List<Traits> traits = new ArrayList<>();
-        session.setAttribute("traits", traits);
-
         return "Start";
 
     }
 
     @PostMapping("/{id}")
     public String next (@PathVariable Long id, Model model, @RequestParam (required = false) Boolean action, HttpSession session) {
+
         if (action == null){
             return "redirect:/question/" + (id);
         }
@@ -75,6 +73,8 @@ public class KompassController {
             traitsList = service.addPointsOrNewTrait(traitsList, currentQuestion);
         }
 
+
+
         List<String> matchedList = new ArrayList<>();
 
         if (id == 10) {
@@ -82,6 +82,8 @@ public class KompassController {
             List<Profession> professionList =(List)professionRepository.findAll();
 
             matchedList = service.matchTraitsAndProfession(professionList, traitsList);
+
+            Collections.sort(traitsList, new SortTraits().reversed());
 
             model.addAttribute("matchedList", matchedList);
             return "result";

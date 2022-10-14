@@ -14,9 +14,9 @@
 
 <div th:each="professions : ${matchedList}" th:text="${professions}"></div>
 
-<h2>Egenskaper du fick poäng i:</h2>
+<h2>Dina topp egenskaper:</h2>
 
-<div th:each="traits : ${session.traitsList}" th:text="${traits.trait}"></div>
+<div th:each="traits : ${session.traitsList}" th:if="${traits.points} > 1" th:text="${traits.trait} + ' (' + ${traits.points} + ' POÄNG)'"></div>
 
 </body>
 </html>
