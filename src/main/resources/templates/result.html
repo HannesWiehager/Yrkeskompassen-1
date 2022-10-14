@@ -10,13 +10,16 @@
 <body class="container overflow-hidden text-center">
 <div class="header"><img src="/img/logo01.png" class="img-fluid" alt="Responsive image"></div>
 
-<h1>Dina yrkesresultat:</h1>
+<h1>Du skulle passa som: </h1>
 
-<div th:each="professions : ${matchedList}" th:text="${professions}"></div>
+<div th:each="professions : ${matchedList}">
+    <h4 th:text="${professions.title} "></h4>
+    <h6 th:text="'(' + ${professions.TRAIT1} + ' & ' + ${professions.TRAIT2}+')'"></h6>
+</div>
 
 <h2>Egenskaper du fick poäng i:</h2>
 
-<div th:each="traits : ${session.traitsList}" th:text="${traits.trait}"></div>
+<div th:each="traits : ${session.traitsList}" th:if="${traits.points} > 0" th:text="${traits.trait} + ' (' + ${traits.points} + ' POÄNG)'"></div>
 
 </body>
 </html>

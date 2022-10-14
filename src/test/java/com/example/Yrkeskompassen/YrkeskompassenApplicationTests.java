@@ -34,7 +34,7 @@ class YrkeskompassenApplicationTests {
 			traits.setPoints(3);
 		}
 
-		List<String> match = service.matchTraitsAndProfession(p, t);
+		List<Profession> match = service.matchTraitsAndProfession(p, t);
 
 		Assertions.assertEquals("LÄRARE", match.get(0));
 	}

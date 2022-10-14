@@ -6,10 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.prefs.Preferences;
 
 @Controller
 public class KompassController {
@@ -75,13 +73,15 @@ public class KompassController {
             traitsList = service.addPointsOrNewTrait(traitsList, currentQuestion);
         }
 
-        List<String> matchedList = new ArrayList<>();
+        List<Profession> matchedList = new ArrayList<>();
 
         if (id == 10) {
             // kolla traitsList mot professionRepo
             List<Profession> professionList =(List)professionRepository.findAll();
 
             matchedList = service.matchTraitsAndProfession(professionList, traitsList);
+
+            Collections.sort(traitsList, new SortTraits().reversed());
 
             model.addAttribute("matchedList", matchedList);
             return "result";
