@@ -5,11 +5,11 @@ INSERT INTO TRAITS(TRAIT) VALUES ('Nischad');
 INSERT INTO TRAITS(TRAIT) VALUES ('Noggrannhet');
 INSERT INTO TRAITS(TRAIT) VALUES ('Rättfram');
 
-INSERT INTO PROFESSION (TITLE, TRAIT1, TRAIT2, POINTS1, POINTS2, DESCRIPTION) VALUES ('LÄRARE', 'Extrovert', 'Lagspelare', 2, 1,'<a href="https://www.awacademy.se/">Academy</a>');
-INSERT INTO PROFESSION (TITLE, TRAIT1, TRAIT2, POINTS1, POINTS2, DESCRIPTION) VALUES ('PROGRAMMERARE', 'Nischad', 'Noggrannhet', 1, 2, '<a href="https://www.awacademy.se/">Academy</a>');
-INSERT INTO PROFESSION (TITLE, TRAIT1, TRAIT2, POINTS1, POINTS2, DESCRIPTION) VALUES ('BREVBÄRARE', 'Extrovert', 'Rättfram', 1, 2,'<a href="https://www.awacademy.se/">Academy</a>');
-INSERT INTO PROFESSION (TITLE, TRAIT1, TRAIT2, POINTS1, POINTS2, DESCRIPTION) VALUES ('POLIS', 'Rättfram', 'Lagspelare', 1, 2,'<a href="https://www.awacademy.se/">Academy</a>');
-INSERT INTO PROFESSION (TITLE, TRAIT1, TRAIT2, POINTS1, POINTS2, DESCRIPTION) VALUES ('FASTIGHETSMÄKLARE', 'Extrovert', 'Noggrannhet', 2, 1,'<a href="https://www.awacademy.se/">Academy</a>');
+INSERT INTO PROFESSION (TITLE, TRAIT1, TRAIT2, POINTS1, POINTS2, DESCRIPTION) VALUES ('LÄRARE', 'Extrovert', 'Lagspelare', 2, 1,'Du är extrovert och en lagspelare! Därför skulle du passa som Lärare. Vill du veta mer om detta yrke, <a href="https://www.awacademy.se/">klicka här!</a>');
+INSERT INTO PROFESSION (TITLE, TRAIT1, TRAIT2, POINTS1, POINTS2, DESCRIPTION) VALUES ('PROGRAMMERARE', 'Nischad', 'Noggrannhet', 1, 2, '<a href="https://www.awacademy.se/">klicka här!</a>');
+INSERT INTO PROFESSION (TITLE, TRAIT1, TRAIT2, POINTS1, POINTS2, DESCRIPTION) VALUES ('BREVBÄRARE', 'Extrovert', 'Rättfram', 1, 2,'<a href="https://www.awacademy.se/">klicka här!</a>');
+INSERT INTO PROFESSION (TITLE, TRAIT1, TRAIT2, POINTS1, POINTS2, DESCRIPTION) VALUES ('POLIS', 'Rättfram', 'Lagspelare', 1, 2,'<a href="https://www.awacademy.se/">klicka här</a>');
+INSERT INTO PROFESSION (TITLE, TRAIT1, TRAIT2, POINTS1, POINTS2, DESCRIPTION) VALUES ('FASTIGHETSMÄKLARE', 'Extrovert', 'Noggrannhet', 2, 1,'<a href="https://www.awacademy.se/">klicka här!</a>');
 
 INSERT INTO QUESTIONS(QUESTION, ANSWER, TRAITS_TRAITSID) VALUES ('Får du energi när du umgås med andra människor?',0,1);
 INSERT INTO QUESTIONS(QUESTION, ANSWER, TRAITS_TRAITSID) VALUES ('Föredrar du att jobba i grupp framför att jobba självständigt?',0,2);
