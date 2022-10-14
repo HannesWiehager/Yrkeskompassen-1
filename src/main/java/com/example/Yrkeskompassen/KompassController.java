@@ -52,7 +52,7 @@ public class KompassController {
 
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/result/{id}")
     public String next (@PathVariable Long id, Model model, @RequestParam (required = false) Boolean action, HttpSession session) {
         if (action == null){
             return "redirect:/question/" + (id);
@@ -90,8 +90,8 @@ public class KompassController {
         return "redirect:/question/" + (id + 1l);
     }
 
-    @GetMapping("/result")
-    public String resultPage(Model model, HttpSession session) {
+    @GetMapping("/result/{id}")
+    public String resultPage(Model model, HttpSession session, Long id) {
         model.getAttribute("matchedList");
         session.getAttribute("traitsList");
 
