@@ -18,19 +18,30 @@ public class Profession {
 
     private String TRAIT2;
 
+    private String DESCRIPTION;
+
     private int POINTS1;
     private int POINTS2;
 
     public Profession() {
     }
 
-    public Profession(Long ID, String title, String TRAIT1, String TRAIT2, int POINTS1, int POINTS2) {
+    public Profession(Long ID, String title, String TRAIT1, String TRAIT2, String DESCRIPTION, int POINTS1, int POINTS2) {
         this.ID = ID;
         this.title = title;
         this.TRAIT1 = TRAIT1;
         this.TRAIT2 = TRAIT2;
+        this.DESCRIPTION = DESCRIPTION;
         this.POINTS1 = POINTS1;
         this.POINTS2 = POINTS2;
+    }
+
+    public String getDESCRIPTION() {
+        return DESCRIPTION;
+    }
+
+    public void setDESCRIPTION(String DESCRIPTION) {
+        this.DESCRIPTION = DESCRIPTION;
     }
 
     public Long getID() {
