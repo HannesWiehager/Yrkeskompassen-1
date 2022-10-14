@@ -74,8 +74,8 @@ public class KompassController {
         }
 
         List<Profession> matchedList = new ArrayList<>();
-
-        if (id == 10) {
+        List<Questions> qs = (List)repository.findAll();
+        if (id == qs.size()) {
             // kolla traitsList mot professionRepo
             List<Profession> professionList =(List)professionRepository.findAll();
 
