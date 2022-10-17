@@ -36,13 +36,13 @@ class YrkeskompassenApplicationTests {
 
 		List<Profession> match = service.matchTraitsAndProfession(p, t);
 
-		Assertions.assertEquals("LÄRARE", match.get(0));
+		Assertions.assertEquals("LÄRARE", match.get(0).getTitle());
 	}
 
 	@Test
 	void addPoints() {
 		List<Traits> t = new ArrayList<>();
-		t.add(new Traits(1l, "EXTROVERT", 1));
+		t.add(new Traits(1l, "Extrovert", 1));
 		List<Questions> q = (List)questionRepository.findAll();
 		Questions question = q.get(0);
 
@@ -59,7 +59,7 @@ class YrkeskompassenApplicationTests {
 		t = service.addPointsOrNewTrait(t, question);
 
 		Assertions.assertEquals(1 , t.get(0).getPoints());
-		Assertions.assertEquals("EXTROVERT" , t.get(0).getTrait());
+		Assertions.assertEquals("Extrovert" , t.get(0).getTrait());
 	}
 
 }
