@@ -15,11 +15,14 @@
 
 <div th:each="professions : ${matchedList}">
     <h4 th:text="${professions.title} "></h4>
-    <h6 th:text="'(' + ${professions.TRAIT1} + ' & ' + ${professions.TRAIT2}+')'"></h6>
+
     <h6 th:utext="${professions.DESCRIPTION}"></h6>
 </div>
 
 
+<!--
+<h6 th:text="'(' + ${professions.TRAIT1} + ' & ' + ${professions.TRAIT2}+')'"></h6>
+-->
 
 <h2>Egenskaper du fick poäng i:</h2>
 
