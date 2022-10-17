@@ -59,24 +59,4 @@ public class Traits {
         this.questionsList = questionsList;
     }
 
-
-    /* public List<Yrke> getYrkeList() {
-        return yrkeList;
-    }
-
-    public void setYrkeList(List<Yrke> yrkeList) {
-        this.yrkeList = yrkeList;
-    }
-
-public enum Egenskaper {
-
-        EXTROVERT,
-        INTROVERT,
-        LAGSPELARE,
-        SJÄLVSTÄNDIG,
-        NYFIKENHET,
-        NOGGRANNHET,
-        FLEXIBEL,
-
-*/
 }

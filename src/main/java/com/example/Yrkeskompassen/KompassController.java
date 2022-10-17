@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.*;
-import java.util.prefs.Preferences;
+
 
 @Controller
 public class KompassController {
@@ -44,9 +44,6 @@ public class KompassController {
         model.addAttribute("currentQuestion", id);
 
         session.setAttribute("question", question);
-
-        List<Traits> traits = new ArrayList<>();
-        session.setAttribute("traits", traits);
 
         return "Start";
 

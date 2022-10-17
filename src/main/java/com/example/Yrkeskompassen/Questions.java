@@ -49,17 +49,5 @@ public class Questions {
     public void setAnswer(boolean answer) {
         this.answer = answer;
     }
-    /*  public List<Egenskaper> getEgenskapspoäng() {
-        return egenskapspoäng;
-    }
 
-    public void setEgenskapspoäng(List<Egenskaper> egenskapspoäng) {
-        this.egenskapspoäng = egenskapspoäng;
-
-    }
-    public Frågor(Long ID, String fråga, List<Egenskaper> egenskapspoäng) {
-        this.ID = ID;
-        this.fråga = fråga;
-        this.egenskapspoäng = egenskapspoäng;
-    }*/
 }

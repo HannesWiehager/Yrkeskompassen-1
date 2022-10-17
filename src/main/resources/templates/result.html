@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
 </head>
 <body class="container overflow-auto text-center">
 
-<div class="header"><img src="/img/logo01.png" class="img-fluid" alt="Responsive image"></div>
-
+<div class="header"><img src="/img/logo02.png" class="img-fluid" alt="Responsive image"></div>
 <h1>Du skulle passa som: </h1>
 
 <div th:each="professions : ${matchedList}">
@@ -19,14 +20,10 @@
     <h6 th:utext="${professions.DESCRIPTION}"></h6><br>
 </div>
 
-
-<!--
-<h6 th:text="'(' + ${professions.TRAIT1} + ' & ' + ${professions.TRAIT2}+')'"></h6>
--->
-
 <h2>Egenskaper du fick poäng i:</h2>
 
-<h6 th:each="traits : ${session.traitsList}" th:if="${traits.points} > 0" th:text="${traits.trait} + ' (' + ${traits.points} + ' POÄNG)'"></h6>
+<h6 th:each="traits : ${session.traitsList}" th:if="${traits.points} > 0"
+    th:text="${traits.trait} + ' (' + ${traits.points} + ' POÄNG)'"></h6>
 
 </body>
 </html>
