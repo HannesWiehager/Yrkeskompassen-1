@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/style.css">
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
 <body class="container overflow-auto text-center">
 
-<div class="header"><img src="/img/logo02.png" class="img-fluid" alt="Responsive image"></div>
-<h1>Du skulle passa som: </h1>
+<div class="header"><img src="/img/logo02.png" class="img-fluid" alt="Responsive image"></div><br>
+<h4>Du skulle passa som </h4> <br>
 
-<div th:each="professions : ${matchedList}">
-    <h4 th:text="${professions.title} "></h4>
-
-    <h6 th:utext="${professions.DESCRIPTION}"></h6><br>
+<div class="container overflow-hidden">
+<div class="row gy-5 justify-content-evenly">
+<div class="col-md-5 card text-bg-secondary p-3" th:each="professions : ${matchedList}">
+    <div class="card-header" th:text="${professions.title}"></div>
+    <div class="card-body">
+        <p class="card-text" th:utext="${professions.DESCRIPTION}"></p>
+    </div>
 </div>
+</div>
+</div>
+<br>
 
-<h2>Egenskaper du fick poäng i:</h2>
-
-<h6 th:each="traits : ${session.traitsList}" th:if="${traits.points} > 0"
-    th:text="${traits.trait} + ' (' + ${traits.points} + ' POÄNG)'"></h6>
+<div class="card text-bg-secondary p-3" style="max-width: 89%; margin: auto;">
+<div class="card-header">Egenskaper du fick poäng i:</div>
+<div class="card-body">
+    <p class="card-text" th:each="traits : ${session.traitsList}"
+       th:text="${traits.trait} + ' (' + ${traits.points} + ' POÄNG)'"></p>
+</div>
+</div>
 
 </body>
 </html>
