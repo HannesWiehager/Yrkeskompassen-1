@@ -64,7 +64,6 @@ public class KompassController {
 
         if (action) {
             Questions currentQuestion = (Questions) session.getAttribute("question");
-            currentQuestion.setAnswer(true);
             repository.save(currentQuestion);
 
             traitsList = service.addPointsOrNewTrait(traitsList, currentQuestion);

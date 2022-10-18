@@ -9,17 +9,15 @@ public class Questions {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long QUESTIONSID;
     private String question;
-    private boolean answer;
     @ManyToOne
    private Traits traits;
 
     public Questions() {
     }
 
-    public Questions(Long QUESTIONSID, String question, boolean answer) {
+    public Questions(Long QUESTIONSID, String question) {
         this.QUESTIONSID = QUESTIONSID;
         this.question = question;
-        this.answer = answer;
     }
 
     public Traits getTraits() {
@@ -41,13 +39,4 @@ public class Questions {
     public void setQuestion(String question) {
         this.question = question;
     }
-
-    public boolean isAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(boolean answer) {
-        this.answer = answer;
-    }
-
 }
