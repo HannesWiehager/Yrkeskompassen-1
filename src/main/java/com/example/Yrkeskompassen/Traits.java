@@ -9,13 +9,13 @@ import java.util.Set;
 
 public class Traits {
     @Id
-    @GeneratedValue ( strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long TRAITSID;
     private String trait;
     @Transient
     private int points;
 
-    @OneToMany (mappedBy="traits", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "traits", cascade = CascadeType.ALL)
     private List<Questions> questionsList = new ArrayList<>();
 
     public Traits() {

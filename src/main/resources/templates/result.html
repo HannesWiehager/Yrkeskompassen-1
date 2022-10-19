@@ -13,27 +13,28 @@
 </head>
 <body class="container overflow-auto text-center">
 
-<div class="header"><img src="/img/logo04.png" class="img-fluid" alt="Responsive image"></div><br>
+<div class="header"><img src="/img/logo04.png" class="img-fluid" alt="Responsive image"></div>
+<br>
 <h4>Du skulle passa som </h4> <br>
 
 <div class="container overflow-hidden">
-<div class="row gy-5 justify-content-evenly">
-<div class="col-md-5 card text-bg-secondary p-3" th:each="professions : ${matchedList}">
-    <div class="card-header" th:text="${professions.title}"></div>
-    <div class="card-body">
-        <p class="card-text" th:utext="${professions.DESCRIPTION}"></p>
+    <div class="row gy-5 justify-content-evenly">
+        <div class="col-md-5 card text-bg-secondary p-3" th:each="professions : ${matchedList}">
+            <div class="card-header" th:text="${professions.title}"></div>
+            <div class="card-body">
+                <p class="card-text" th:utext="${professions.DESCRIPTION}"></p>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 </div>
 <br>
 
 <div class="card text-bg-secondary p-3" style="max-width: 89%; margin: auto;">
-<div class="card-header">Egenskaper du fick poäng i:</div>
-<div class="card-body">
-    <p class="card-text" th:each="traits : ${session.traitsList}"
-       th:text="${traits.trait} + ' (' + ${traits.points} + ' POÄNG)'"></p>
-</div>
+    <div class="card-header">Egenskaper du fick poäng i:</div>
+    <div class="card-body">
+        <p class="card-text" th:each="traits : ${session.traitsList}"
+           th:text="${traits.trait} + ' (' + ${traits.points} + ' POÄNG)'"></p>
+    </div>
 </div>
 
 </body>

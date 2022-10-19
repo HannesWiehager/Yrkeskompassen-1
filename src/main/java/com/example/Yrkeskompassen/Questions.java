@@ -6,11 +6,11 @@ import javax.persistence.*;
 
 public class Questions {
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long QUESTIONSID;
     private String question;
     @ManyToOne
-   private Traits traits;
+    private Traits traits;
 
     public Questions() {
     }

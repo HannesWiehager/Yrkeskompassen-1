@@ -25,7 +25,7 @@ public class KompassService {
     }
 
     public List<Traits> addPointsOrNewTrait(List<Traits> list1, Questions test) {
-        boolean isTrue= true;
+        boolean isTrue = true;
 
         for (Traits traits : list1) {
             if (traits.getTrait().equals(test.getTraits().getTrait())) {
