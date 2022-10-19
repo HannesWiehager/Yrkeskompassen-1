@@ -21,9 +21,6 @@ class YrkeskompassenApplicationTests {
 	@Autowired
 	QuestionRepository questionRepository;
 
-	@Test
-	void contextLoads() {
-	}
 
 	@Test
 	void matchTraitsAndProfession() {

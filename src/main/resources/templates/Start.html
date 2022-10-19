@@ -24,9 +24,20 @@
                 <label class="radio-inline" for="validationFormCheck2">Nej</label>
                 <br>
                 <br>
-                <div class="d-grid gap-2 col-6 mx-auto"><input type="submit" class="tempBtn2 btn btn-primary mb-2 m-1"
-                                                               value="Nästa"></div>
+                <div class="row gy-5 justify-content-evenly">
+
+                <div class="d-grid gap-3 col-4 d-md-block">
+
+                    <a class="tempBtn2 btn btn-primary mb-2 m-1" th:href="'/question/'+${id-1}" th:if="${id}>1">Tillbaka</a>
+
+                    <input type="submit" class="tempBtn2 btn btn-primary mb-2 m-1" value="  Nästa  ">
+
+                </div>
+
+                </div>
+
             </form>
+
 
         </table>
 
