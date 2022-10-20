@@ -75,7 +75,7 @@ public class KompassController {
         Boolean[] booleanList = (Boolean[]) session.getAttribute("booleanList");
 
         if (action) {
-          booleanList[(int) (id - 1)] = true;
+            booleanList[(int) (id - 1)] = true;
         } else {
             booleanList[(int) (id - 1)] = false;
         }
@@ -83,15 +83,12 @@ public class KompassController {
         List<Profession> matchedList = new ArrayList<>();
 
         if (id == qs.size()) {
-
             List<Profession> professionList = (List) professionRepository.findAll();
-
+            traitsList.clear();
             for (int i = 0; i < booleanList.length; i++) {
                 if (booleanList[i]) {
                     traitsList = service.addPointsOrNewTrait(traitsList, qs.get(i));
-
                 }
-
             }
 
             Collections.sort(traitsList, new SortTraits().reversed());

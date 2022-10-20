@@ -31,9 +31,9 @@
 <br>
 
 <div class="card text-bg-secondary p-3" style="max-width: 89%; margin: auto;">
-    <div class="card-header">Egenskaper du fick poäng i:</div>
+    <div class="card-header">Dina starkaste egenskaper:</div>
     <div class="card-body">
-        <p class="card-text" th:each="traits : ${session.traitsList}"
+        <p class="card-text" th:each="traits : ${session.traitsList}" th:if="${traits.points}>1"
            th:text="${traits.trait} + ' (' + ${traits.points} + ' POÄNG)'"></p>
     </div>
 </div>
