@@ -91,10 +91,10 @@ public class KompassController {
                 }
             }
 
-            Collections.sort(traitsList, new SortTraits().reversed());
             matchedList = service.matchTraitsAndProfession(professionList, traitsList);
             model.addAttribute("matchedList", matchedList);
-
+            List<Traits> matchedTraits = service.traitsFromMatchedProfessions(traitsList, matchedList);
+            model.addAttribute("matchedTraits", matchedTraits);
             return "result";
         }
 

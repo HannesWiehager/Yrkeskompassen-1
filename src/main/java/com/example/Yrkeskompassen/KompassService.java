@@ -2,8 +2,7 @@ package com.example.Yrkeskompassen;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class KompassService {
@@ -41,6 +40,21 @@ public class KompassService {
             traitsList.add(traitTest);
         }
         return traitsList;
+    }
+
+    public List<Traits> traitsFromMatchedProfessions (List<Traits> traitsList, List<Profession> professionList){
+        Set<Traits> traitsSet = new HashSet<>();
+        for(Traits t : traitsList) {
+            for(Profession p: professionList) {
+                   if(t.getTrait().equals(p.getTRAIT1()) || (t.getTrait().equals(p.getTRAIT2()))) {
+                         traitsSet.add(t);
+                }
+            }
+        }
+        List<Traits> matchedTraits = new ArrayList<>(traitsSet);
+
+        Collections.sort(matchedTraits, new SortTraits().reversed());
+        return matchedTraits;
     }
 }
 
