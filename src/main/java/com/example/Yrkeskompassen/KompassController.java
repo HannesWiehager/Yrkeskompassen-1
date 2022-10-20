@@ -26,7 +26,7 @@ public class KompassController {
         return "home";
     }
 
-    @GetMapping("/start")
+    @GetMapping("/question")
     public String start(HttpSession session) {
         List<Questions> q = (List) repository.findAll();
         List<Traits> traitsList = new ArrayList<>();
@@ -53,7 +53,7 @@ public class KompassController {
         session.setAttribute("question", question);
 
 
-        return "Start";
+        return "questionPage";
 
     }
 
@@ -75,12 +75,7 @@ public class KompassController {
         Boolean[] booleanList = (Boolean[]) session.getAttribute("booleanList");
 
         if (action) {
-            //   Questions currentQuestion = (Questions) session.getAttribute("question");
-            // repository.save(currentQuestion);
-
-            // traitsList = service.addPointsOrNewTrait(traitsList, currentQuestion);
-
-            booleanList[(int) (id - 1)] = true;
+          booleanList[(int) (id - 1)] = true;
         } else {
             booleanList[(int) (id - 1)] = false;
         }
@@ -88,7 +83,7 @@ public class KompassController {
         List<Profession> matchedList = new ArrayList<>();
 
         if (id == qs.size()) {
-            // kolla traitsList mot professionRepo
+
             List<Profession> professionList = (List) professionRepository.findAll();
 
             for (int i = 0; i < booleanList.length; i++) {

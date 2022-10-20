@@ -2,20 +2,21 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Yrkeskompassen</title>
+    <link rel="icon" href="/img/kompass.png">
 
     <link rel="stylesheet" href="/CSS/style.css">
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 </head>
 <body class="container overflow-auto text-center">
 
-<div class="header"><img src="/img/logo04.png" class="img-fluid" alt="Responsive image"></div>
+<div class="header"><img src="/img/logo05.png" class="img-fluid" alt="Responsive image"></div>
+
+
 <br>
-<h4>Du skulle passa som </h4> <br>
+<h4>Du skulle passa som:</h4> <br>
 
 <div class="container overflow-hidden">
     <div class="row gy-5 justify-content-evenly">
@@ -36,6 +37,6 @@
            th:text="${traits.trait} + ' (' + ${traits.points} + ' POÄNG)'"></p>
     </div>
 </div>
-
+<a class="tempBtn2 btn btn-light mb-2 m-1" th:href="'/'">Tillbaka till startsida</a>
 </body>
 </html>
